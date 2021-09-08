@@ -5,31 +5,22 @@ import img8 from "../images/8.png";
 import img3 from "../images/3.png";
 import { Component } from 'react';
 import axios from 'axios';
+import React,{useState} from 'react';
 
 
-
-class Contact extends Component{
-    handleSubmit(e){
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        axios({
-            method: "POST", 
-            url:"http://localhost:3002/send", 
-            data: {
-                name: "Test",   
-                email: email,  
-                messsage: "Test message"
-            }
-        }).then((response)=>{
-            if (response.data.msg === 'success'){
-                alert("Message Sent."); 
-                this.resetForm()
-            }else if(response.data.msg === 'fail'){
-                alert("Message failed to send.")
-            }
-        })
-    }
-    render(){
+function Contact()  {
+    const [ sent, setSent ] = useState(false)
+	const [ text, setText ] = useState("")
+    const handleSend = async (e) => {
+		setSent(true)
+		try {
+			await axios.post("http://localhost:4000/send_mail", {
+				text
+			})
+		} catch (error) {
+			console.error(error)
+		}
+	}
        return (
         <div className="container launch">
           
@@ -44,14 +35,21 @@ class Contact extends Component{
                 <h1>
                     Be one of the first to know when we launch!
                 </h1>
-                <form className="d-flex" onSubmit={this.handleSubmit.bind(this)} method="POST">
-                    <input className="form-control" id="email" type="search" placeholder="Your email address" aria-label="Search"/>
-                    <button type="submit" className="btn btn-primary early-btn" type="submit">Get Early Access</button>
+                {
+                    !sent?(
+                        <form className="d-flex" onSubmit={handleSend}>
+                    <input className="form-control" id="email" type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Your email address" aria-label="Search"/>
+                    <button type="submit" className="btn btn-primary early-btn">Get Early Access</button>
                   </form> 
+                    ):(
+                        <h1>Email Sent</h1>
+                    )
+                }
+                
               </div>
           </div>
       </div>
       
-    )}
+    )
 }
 export default Contact;
