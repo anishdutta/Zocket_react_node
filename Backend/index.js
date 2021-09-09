@@ -14,17 +14,16 @@ app.use(cors())
 app.post("/send_mail", cors(), async (req, res) => {
 	let { text } = req.body
 	const transport = nodemailer.createTransport({
-		host: "smtp.mailtrap.io",
-		port: "587",
+		service: "gmail",
 		auth: {
-			user: "ddbb9fe633b526",
-			pass: "095c63fe32a284"
+			user: "deepdutta1729@gmail.com",
+			pass: "Deep_2000"
 		}
 	})
 
 	await transport.sendMail({
 		from: "anish2000.ad@gmail.com",
-		to: "anish2000.ad@gmail.com",
+		to: text,
 		subject: "test email",
 		html: `<div className="email" style="
         border: 1px solid black;
@@ -36,7 +35,7 @@ app.post("/send_mail", cors(), async (req, res) => {
         <h2>Here is your email!</h2>
         <p>${text}</p>
     
-        <p>All the best, Darwin</p>
+        <p>All the best man</p>
          </div>
     `
 	})
