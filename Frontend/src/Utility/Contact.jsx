@@ -18,7 +18,8 @@ function Contact()  {
 				text
 			})
 		} catch (error) {
-			console.error(error)
+            console.log(text);
+			console.error(error);
 		}
 	}
        return (

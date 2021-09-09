@@ -12,19 +12,18 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.post("/send_mail", cors(), async (req, res) => {
-    console.log('its here');
 	let { text } = req.body
 	const transport = nodemailer.createTransport({
-		host: process.env.MAIL_HOST,
-		port: process.env.MAIL_PORT,
+		host: "smtp.mailtrap.io",
+		port: "587",
 		auth: {
-			user: process.env.MAIL_USER,
-			pass: process.env.MAIL_PASS
+			user: "ddbb9fe633b526",
+			pass: "095c63fe32a284"
 		}
 	})
 
 	await transport.sendMail({
-		from: process.env.MAIL_FROM,
+		from: "anish2000.ad@gmail.com",
 		to: "anish2000.ad@gmail.com",
 		subject: "test email",
 		html: `<div className="email" style="
@@ -43,9 +42,7 @@ app.post("/send_mail", cors(), async (req, res) => {
 	})
 })
 
-app.listen(
-	(process.env.PORT || 4000,
-	() => {
-		console.log("Server is listening on port 4000")
-	})
-)
+
+app.listen(4000, () => {
+	console.log(`Example app listening at http://localhost: 4000`)
+  })
