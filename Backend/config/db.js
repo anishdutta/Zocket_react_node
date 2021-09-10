@@ -1,9 +1,9 @@
 const mysql = require('mysql')
 
 const db = mysql.createConnection({
-host: "35.244.33.164",
-user: "root",
-password: "test123",
+host: "zocket-app.mysql.database.azure.com",
+user: "user@zocket-app",
+password: "Deep_2000",
 database:"myusers" 
 })
 

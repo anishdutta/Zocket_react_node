@@ -25,7 +25,7 @@ app.post('/api/create', (req,res)=> {
 	
 	console.log(Id);
 	
-	db.query(`insert into Users (Id, Email) values (${Id},'${User}');`, (err,result)=>{
+	db.query(`insert into users (Id, Email) values (${Id},'${User}');`, (err,result)=>{
 	   if(err) {
 		   console.log(err)
 	   } 

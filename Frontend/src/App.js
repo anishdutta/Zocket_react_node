@@ -16,248 +16,64 @@ import img9 from "./images/9.png";
 import Footer from './Utility/Footer.jsx';
 import Navbar from './Utility/navbar.jsx';
 import Contact from './Utility/Contact';
+import {  Route, BrowserRouter as Router, Switch, useParams } from 'react-router-dom';
+import Home from './Utility/Home';
+import Review from './Utility/Review';
+
 
 function App() {
   
+  
   return (
     <div className="App">
-      <Navbar></Navbar>
-      <div className="container main-head">
-        <div className="row">
-            <div className="col col-md-6">
-                <h1>
-                    FACEBOOK ADS IN 30 SECONDS
-                </h1>
-                <h5>
-                    Create stunning ad copy incredibly fast and skyrocket your digital business.
-                </h5>
-                <form className="d-flex">
-                    <input className="form-control" type="search" placeholder="Your email address" aria-label="Search"/>
-                    <button className="btn btn-primary early-btn" type="submit">Get Early Access</button>
-                  </form> 
-            </div>
-            <div className="col col-md-6">
-                <img src={img4}/>
-            </div>
-        </div>
-      </div>
-      <div className="container services">
-          <h1>Tailor-made Services</h1>
-        <div className="row">
-            <div className="col myservice col-md-4">
-                <div className="service-cont">
-                    <img src={img2}/>
-                    <div className="services-content">
-                      <h2>
-                        Facebook Ads
-                    </h2>
-                    <h5>
-                        With custom audience targeting and personalized ad campaigns, your business is sure to acquire leads.
-                    </h5>
-                    
-                    </div>
-                    <div className="explore-btn">
-                        Explore
-                        <img src={img6}/>
-                    </div>  
-                    
-                </div>
-            </div>
-            <div className="col myservice col-md-4">
-                <div className="service-cont">
-                    <img src={img2}/>
-                    <div className="services-content">
-                      <h2>
-                        Facebook Ads
-                    </h2>
-                    <h5>
-                        With custom audience targeting and personalized ad campaigns, your business is sure to acquire leads.
-                    </h5>
-                    
-                    </div>
-                    <div className="explore-btn">
-                        Explore
-                        <img src={img6}/>
-                    </div>  
-                    
-                </div>
-            </div>
-            <div className="col myservice col-md-4">
-                <div className="service-cont">
-                    <img src={img2}/>
-                    <div className="services-content">
-                      <h2>
-                        Facebook Ads
-                    </h2>
-                    <h5>
-                        With custom audience targeting and personalized ad campaigns, your business is sure to acquire leads.
-                    </h5>
-                    
-                    </div>
-                    <div className="explore-btn">
-                        Explore
-                        <img src={img6}/>
-                    </div>  
-                    
-                </div>
-            </div>
-            
-        </div>
-      </div>
-      <div className="container whyus">
-          <h1>Why Us</h1>
-          <div className="row  whyus-row">
-              <div className="col col-md-6">
-                  <img src={img4}/>
-              </div>
-              <div className="col col-md-6 whyus-content">
-                <h2>
-                    Localised Ad Campaigns
-                </h2>
-                <h5>
-                    With Zocket’s localised ad campaigns, you’re sure to drive customers to your physical store. Online business listings, geo-tagging, and ads are some of the many things we help businesses get started with. You can rest assured that you’ll leave a positive brand image on your customers as your business flourishes, making it easier for you to build long-lasting customer relationships locally.
-                </h5>
-              </div>
-              
-          </div>
-          <div className="row flex-row-reverse whyus-row">
-              <div className="col col-md-6">
-                  <img src={img4}/>
-              </div>
-              <div className="col col-md-6 whyus-content">
-                <h2>
-                    Localised Ad Campaigns
-                </h2>
-                <h5>
-                    With Zocket’s localised ad campaigns, you’re sure to drive customers to your physical store. Online business listings, geo-tagging, and ads are some of the many things we help businesses get started with. You can rest assured that you’ll leave a positive brand image on your customers as your business flourishes, making it easier for you to build long-lasting customer relationships locally.
-                </h5>
-              </div>
-              
-          </div>
-          <div className="row  whyus-row">
-              <div className="col col-md-6">
-                  <img src={img4}/>
-              </div>
-              <div className="col col-md-6 whyus-content">
-                <h2>
-                    Localised Ad Campaigns
-                </h2>
-                <h5>
-                    With Zocket’s localised ad campaigns, you’re sure to drive customers to your physical store. Online business listings, geo-tagging, and ads are some of the many things we help businesses get started with. You can rest assured that you’ll leave a positive brand image on your customers as your business flourishes, making it easier for you to build long-lasting customer relationships locally.
-                </h5>
-              </div>
-              
-          </div>
-      </div>
-      <div className="testimonials">
-          <h1>Hear It From Them</h1>
-          <img className="abscev3" src={img0}/>
+      <Router>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-    
-          <div className="row">
-            <div className="col-sm-12">
-              <div id="customers-testimonials" className="owl-carousel">
-    
-                
-                <div className="item">
-                  <div className="testimonials-content ">
-                      <h2>
-                        Incredibly Amazing!
-                      </h2>
-                      <h5>
-                        Zocket made a huge difference in just a few weeks of using it. Their ad copy helped take our business to the next level.
-                      </h5>
-                      
-                    
-                  </div>
-                  <img className="myarrow" style={{marginTop: "-5px", width: "20px"}} src={img1}/>
-                  <div className="testimonials-info">
-                     <img className="img-circle"  src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt=""/>
-                  <h3>
-                    Ella May
-                  </h3>
-                  <h6>
-                    Digital Marketer
-                  </h6> 
-                  </div>
-                  
-                </div>
-                <div className="item">
-                  <div className="testimonials-content ">
-                      <h2>
-                        Incredibly Amazing!
-                      </h2>
-                      <h5>
-                        Zocket made a huge difference in just a few weeks of using it. Their ad copy helped take our business to the next level.
-                      </h5>
-                      
-                    
-                  </div>
-                  <img className="myarrow" style={{marginTop: "-5px", width: "20px"}} src={img1}/>
-                  <div className="testimonials-info">
-                     <img className="img-circle"  src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt=""/>
-                  <h3>
-                    Ella May
-                  </h3>
-                  <h6>
-                    Digital Marketer
-                  </h6> 
-                  </div>
-                  
-                </div>
-                <div className="item">
-                  <div className="testimonials-content ">
-                      <h2>
-                        Incredibly Amazing!
-                      </h2>
-                      <h5>
-                        Zocket made a huge difference in just a few weeks of using it. Their ad copy helped take our business to the next level.
-                      </h5>
-                      
-                    
-                  </div>
-                  <img className="myarrow" style={{marginTop: "-5px", width: "20px"}} src={img1}/>
-                  <div className="testimonials-info">
-                     <img className="img-circle"  src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt=""/>
-                  <h3>
-                    Ella May
-                  </h3>
-                  <h6>
-                    Digital Marketer
-                  </h6> 
-                  </div>
-                  
-                </div>
-                <div className="item">
-                  <div className="testimonials-content ">
-                      <h2>
-                        Incredibly Amazing!
-                      </h2>
-                      <h5>
-                        Zocket made a huge difference in just a few weeks of using it. Their ad copy helped take our business to the next level.
-                      </h5>
-                      
-                    
-                  </div>
-                  <img className="myarrow" style={{marginTop: "-5px", width: "20px"}} src={img1}/>
-                  <div className="testimonials-info">
-                     <img className="img-circle"  src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt=""/>
-                  <h3>
-                    Ella May
-                  </h3>
-                  <h6>
-                    Digital Marketer
-                  </h6> 
-                  </div>
-                  
-                </div>
-                
-              </div>
-            </div>
+          <img src={img9}/>   
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          
+          <div className="collapse navbar-collapse " id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link to="/hey" className="nav-link">  Services </Link>   
+              </li>
+              <li className="nav-item">
+              <span className="nav-link"> Why Us   </span>
+              </li>
+              <li className="nav-item">
+              <span className="nav-link">About   </span>
+              </li>
+              <li className="nav-item">
+              <span className="nav-link">Pricing   </span>
+              </li>
+              <li className="nav-item">
+              <span className="nav-link"> Contact   </span>
+              </li>
+             
+            </ul>
+            
+            <button className="btn btn-primary accessbtn">
+                Get Early Access
+            </button>
           </div>
-          </div>
+          
+         
         </div>
-        <Contact></Contact>
+      </nav>
+   <Switch>
+          <Route path="/:id" >
+            <Review></Review>
+            </Route>
+          <Route path="/" >
+            <Home></Home>
+            </Route>
+          
+        </Switch>
+      </Router>
+      
+      <Contact></Contact>
       <Footer></Footer>
       </div>
   );

@@ -6,29 +6,39 @@ import img3 from "../images/3.png";
 import { Component } from 'react';
 import axios from 'axios';
 import React,{useState} from 'react';
+import {Router, useHistory } from 'react-router-dom'
 
 
 function Contact()  {
+    const history = useHistory();
+
     const [ sent, setSent ] = useState(false)
 	const [ text, setText ] = useState("")
-	const [ timestamp, setTimestamp ] = useState("")
+	var timestamp = 0;
 
     const submitPost = () => {
         
         }
-    const handleSend = async (e) => {
+    const handleSend =  (e) => {
 		setSent(true)
+        
 		try {
 			axios.post("http://localhost:4000/send_mail", {
 				text
 			})
-            setTimestamp(Date.now);
+            timestamp = Math.floor(Date.now()/1000);
             console.log(timestamp);
-            axios.post('http://localhost:4000/api/create', {Id: Math.floor(Date.now()/1000), User: text})
+            
+            axios.post('http://localhost:4000/api/create', {Id: timestamp, User: text})
+            routetoreview();
+
 		} catch (error) {
             console.log(text);
 			console.error(error);
 		}
+    }
+    function routetoreview(){
+        history.push("/timestamp");
     }
        return (
         <div className="container launch">
