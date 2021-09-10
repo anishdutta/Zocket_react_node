@@ -1,6 +1,24 @@
 const express = require("express")
+const db = require('./config/db')
 const app = express()
 require("dotenv").config()
+
+app.post('/api/create', (req,res)=> {
+
+	const username = "testuser";
+	const title = "test title";
+	const text = "my text";
+	
+	console.log(username,title,text)
+	
+	db.query("INSERT INTO posts (title, post_text, user_name) VALUES (?,?,?)",[title,text,username], (err,result)=>{
+	   if(err) {
+		   console.log(err)
+	   } 
+	   console.log(result)
+	}
+	);   
+	})
 
 const bodyParser = require("body-parser")
 const cors = require("cors")

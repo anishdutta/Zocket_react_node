@@ -11,6 +11,10 @@ import React,{useState} from 'react';
 function Contact()  {
     const [ sent, setSent ] = useState(false)
 	const [ text, setText ] = useState("")
+
+    // const submitPost = () => {
+    //     axios.post('http://localhost:4000/api/create', {userName: "userName", title: "title", text:"text"})
+    //     }
     const handleSend = async (e) => {
 		setSent(true)
 		try {
@@ -31,8 +35,8 @@ function Contact()  {
                   <img src={img3}/>
               </div>
               <div className="col col-md-6">
-                <img src={img7} className="absvec1"/>
-                <img src={img8} className="absvec2"/>
+                <img src={img7} alt="" className="absvec1"/>
+                <img src={img8} alt="" className="absvec2"/>
                 <h1>
                     Be one of the first to know when we launch!
                 </h1>
@@ -40,7 +44,7 @@ function Contact()  {
                     !sent?(
                         <form className="d-flex" onSubmit={handleSend}>
                     <input className="form-control" id="email" type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Your email address" aria-label="Search"/>
-                    <button type="submit" className="btn btn-primary early-btn">Get Early Access</button>
+                    <button type="submit"  className="btn btn-primary early-btn">Get Early Access</button>
                   </form> 
                     ):(
                         <h1>Email Sent</h1>
