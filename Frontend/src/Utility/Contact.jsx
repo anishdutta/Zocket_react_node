@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import '../css/style.css';
 import img7 from "../images/7.png";
 import img8 from "../images/8.png";
@@ -6,10 +5,13 @@ import img3 from "../images/3.png";
 import { Component } from 'react';
 import axios from 'axios';
 import React,{useState} from 'react';
-import {Router, useHistory } from 'react-router-dom'
+import ReactDom from 'react-dom';
+
+import { useHistory } from "react-router-dom";
 
 
 function Contact()  {
+    
     const history = useHistory();
 
     const [ sent, setSent ] = useState(false)
@@ -29,18 +31,19 @@ function Contact()  {
             timestamp = Math.floor(Date.now()/1000);
             console.log(timestamp);
             
-            axios.post('http://localhost:4000/api/create', {Id: timestamp, User: text})
-            routetoreview();
+            axios.post('http://localhost:4000/api/create', {Id: timestamp, User: text});
+            console.log("complete");
+            history.push("/hello");
+           
 
 		} catch (error) {
             console.log(text);
 			console.error(error);
 		}
     }
-    function routetoreview(){
-        history.push("/timestamp");
-    }
+    
        return (
+           
         <div className="container launch">
           
           <div className="row launch-row">
@@ -53,11 +56,14 @@ function Contact()  {
                 <img src={img8} alt="" className="absvec2"/>
                 <h1>
                     Be one of the first to know when we launch!
+                   
                 </h1>
                 {
                     !sent?(
+                        
                         <form className="d-flex" onSubmit={handleSend}>
                     <input className="form-control" id="email" type="text" required value={text} onChange={(e) => setText(e.target.value)} placeholder="Your email address" aria-label="Search"/>
+                    
                     <button type="submit"  className="btn btn-primary early-btn">Get Early Access</button>
                   </form> 
                     ):(
