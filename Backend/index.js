@@ -1,26 +1,12 @@
 const express = require("express")
+var bodyParser = require('body-parser')
 const db = require('./config/db')
 const app = express()
 require("dotenv").config()
 
-app.post('/api/create', (req,res)=> {
 
-	const username = "testuser";
-	const title = "test title";
-	const text = "my text";
-	
-	console.log(username,title,text)
-	
-	db.query("INSERT INTO posts (title, post_text, user_name) VALUES (?,?,?)",[title,text,username], (err,result)=>{
-	   if(err) {
-		   console.log(err)
-	   } 
-	   console.log(result)
-	}
-	);   
-	})
 
-const bodyParser = require("body-parser")
+
 const cors = require("cors")
 const nodemailer = require("nodemailer")
 
@@ -28,6 +14,25 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use(cors())
+
+app.post('/api/create', (req,res)=> {
+
+	
+
+	const Id = req.body.Id;
+	const User = req.body.User;
+	
+	
+	console.log(Id);
+	
+	db.query(`insert into Users (Id, Email) values (${Id},'${User}');`, (err,result)=>{
+	   if(err) {
+		   console.log(err)
+	   } 
+	   console.log(result)
+	}
+	);   
+	})
 
 app.post("/send_mail", cors(), async (req, res) => {
 	let { text } = req.body

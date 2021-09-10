@@ -11,21 +11,25 @@ import React,{useState} from 'react';
 function Contact()  {
     const [ sent, setSent ] = useState(false)
 	const [ text, setText ] = useState("")
+	const [ timestamp, setTimestamp ] = useState("")
 
-    // const submitPost = () => {
-    //     axios.post('http://localhost:4000/api/create', {userName: "userName", title: "title", text:"text"})
-    //     }
+    const submitPost = () => {
+        
+        }
     const handleSend = async (e) => {
 		setSent(true)
 		try {
-			await axios.post("http://localhost:4000/send_mail", {
+			axios.post("http://localhost:4000/send_mail", {
 				text
 			})
+            setTimestamp(Date.now);
+            console.log(timestamp);
+            axios.post('http://localhost:4000/api/create', {Id: Math.floor(Date.now()/1000), User: text})
 		} catch (error) {
             console.log(text);
 			console.error(error);
 		}
-	}
+    }
        return (
         <div className="container launch">
           
@@ -43,13 +47,14 @@ function Contact()  {
                 {
                     !sent?(
                         <form className="d-flex" onSubmit={handleSend}>
-                    <input className="form-control" id="email" type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Your email address" aria-label="Search"/>
+                    <input className="form-control" id="email" type="text" required value={text} onChange={(e) => setText(e.target.value)} placeholder="Your email address" aria-label="Search"/>
                     <button type="submit"  className="btn btn-primary early-btn">Get Early Access</button>
                   </form> 
                     ):(
                         <h1>Email Sent</h1>
                     )
                 }
+                {/* <button onClick={submitPost} className="btn btn-primary">Test</button> */}
                 
               </div>
           </div>
