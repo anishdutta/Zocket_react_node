@@ -16,13 +16,8 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.post('/api/create', (req,res)=> {
-
-	
-
 	const Id = req.body.Id;
-	const User = req.body.User;
-	
-	
+	const User = req.body.User;	
 	console.log(Id);
 	
 	db.query(`insert into users (Id, Email) values (${Id},'${User}');`, (err,result)=>{
@@ -30,9 +25,21 @@ app.post('/api/create', (req,res)=> {
 		   console.log(err)
 	   } 
 	   console.log(result)
-	}
-	);   
+	});   
+	res.send('Added to db');
 	})
+
+	app.get("/api/getFromId/:id", (req,res)=>{
+
+		const id = req.params.id;
+			db.query("SELECT * FROM users WHERE Id = ?", id, (err,result)=>{
+				if(err) {
+				console.log(err)
+				} 
+			res.send(result)
+			}
+			);   
+			});
 
 app.post("/send_mail", cors(), async (req, res) => {
 	let { text } = req.body
@@ -62,6 +69,8 @@ app.post("/send_mail", cors(), async (req, res) => {
          </div>
     `
 	})
+
+	res.send('Email Sent');
 })
 
 
