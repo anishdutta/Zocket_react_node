@@ -15,7 +15,7 @@ function Review() {
   const [email, setemail] = useState('');
 
   useEffect(()=>{
-    axios.get(`http://localhost:4000/api/getFromId/${id}`).then((data)=>{
+    axios.get(`https://zocket-express-azure.herokuapp.com/api/getFromId/${id}`).then((data)=>{
         console.log(data)
         if(Array.isArray(data.data) && data.data.length){
           setemail(data.data[0].Email);  
