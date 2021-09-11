@@ -47,7 +47,7 @@ app.post("/send_mail", cors(), async (req, res) => {
 		service: "gmail",
 		auth: {
 			user: "deepdutta1729@gmail.com",
-			pass: "Deep_2000"
+			pass: process.env.PASS
 		}
 	})
 
