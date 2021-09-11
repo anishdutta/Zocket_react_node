@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
+import { useState } from 'react';
 import '../css/style.css';
 import '../css/slider.css';
 import img0 from "../images/0.png";
@@ -12,14 +13,59 @@ import img6 from "../images/6.png";
 import img7 from "../images/7.png";
 import img8 from "../images/8.png";
 import img9 from "../images/9.png";
+import img10 from "../images/10.png";
+import img11 from "../images/11.png";
+import img12 from "../images/12.png";
+import img13 from "../images/13.png";
+import img14 from "../images/14.png";
+import img15 from "../images/15.png";
+import img16 from "../images/16.png";
+import img17 from "../images/17.png";
+import img18 from "../images/18.png";
+import img19 from "../images/19.png";
+import img20 from "../images/20.png";
+
 
 
 import { Route } from "react-router";
 
 function Home(){
+  const [ sent, setSent ] = useState(false)
+	const [ text, setText ] = useState("")
+	var timestamp = 0;    
+    const handleSend =  (e) => {
+      e.preventDefault();
+		setSent(true)
+        
+		try {
+			axios.post("http://localhost:4000/send_mail", {
+				text
+			}).then(Response=>{
+                timestamp = Math.floor(Date.now()/1000);
+            console.log(timestamp);
+                axios.post('http://localhost:4000/api/create', {Id: timestamp, User: text}).then(Response=>{
+                    window.location.replace(`/${timestamp}`);
+                    // this.props.history.replace(`/${timestamp}`);
+                    
+                });
+            })
+            // prod
+			// axios.post("https://zocket-express-azure.herokuapp.com/send_mail", {
+			// 	text
+			// })
+		} catch (error) {
+            console.log(text);
+			console.error(error);
+		}
+    }
     return(
         <div>
             <div className="container main-head">
+            <img className="bubble absvec4"  alt="" src={img18}></img>
+            <img className="absvec5"  alt="" src={img19}></img>
+            <img className="absvec6"  alt="" src={img20}></img>
+            <img className="absvec7"  alt="" src={img18}></img>
+
         <div className="row">
             <div className="col col-md-6">
                 <h1>
@@ -28,9 +74,9 @@ function Home(){
                 <h5>
                     Create stunning ad copy incredibly fast and skyrocket your digital business.
                 </h5>
-                <form className="d-flex">
-                    <input className="form-control" type="search" placeholder="Your email address" aria-label="Search"/>
-                    <button className="btn btn-primary early-btn" type="submit">Get Early Access</button>
+                <form className="d-flex" onSubmit={handleSend}>
+                    <input required value={text} onChange={(e) => setText(e.target.value)} className="form-control" type="search" placeholder="Your email address" aria-label="Search"/>
+                    <button type="submit" className="btn btn-primary early-btn" >Get Early Access</button>
                   </form> 
             </div>
             <div className="col col-md-6">
@@ -62,14 +108,13 @@ function Home(){
             </div>
             <div className="col myservice col-md-4">
                 <div className="service-cont">
-                    <img src={img2}/>
+                    <img src={img11}/>
                     <div className="services-content">
                       <h2>
-                        Facebook Ads
+                      Google Ads
                     </h2>
                     <h5>
-                        With custom audience targeting and personalized ad campaigns, your business is sure to acquire leads.
-                    </h5>
+                    We offer industry research paired with PPC monitoring and A/B testing to ensure you get an improved ROI.                    </h5>
                     
                     </div>
                     <div className="explore-btn">
@@ -81,14 +126,12 @@ function Home(){
             </div>
             <div className="col myservice col-md-4">
                 <div className="service-cont">
-                    <img src={img2}/>
+                    <img src={img10}/>
                     <div className="services-content">
                       <h2>
-                        Facebook Ads
-                    </h2>
+                      Instagram Ads                    </h2>
                     <h5>
-                        With custom audience targeting and personalized ad campaigns, your business is sure to acquire leads.
-                    </h5>
+                    Right from design and content strategy to profile management and everything in between, we’ve got you covered.                    </h5>
                     
                     </div>
                     <div className="explore-btn">
@@ -119,29 +162,25 @@ function Home(){
           </div>
           <div className="row flex-row-reverse whyus-row">
               <div className="col col-md-6">
-                  <img src={img4}/>
+                  <img src={img12}/>
               </div>
               <div className="col col-md-6 whyus-content">
                 <h2>
-                    Localised Ad Campaigns
-                </h2>
+                Get More Calls and Enquiries                </h2>
                 <h5>
-                    With Zocket’s localised ad campaigns, you’re sure to drive customers to your physical store. Online business listings, geo-tagging, and ads are some of the many things we help businesses get started with. You can rest assured that you’ll leave a positive brand image on your customers as your business flourishes, making it easier for you to build long-lasting customer relationships locally.
-                </h5>
+                When you use Zocket, you can expect calls pouring in with enquiries about your business. Our exceptional outreach strategies and business profile optimization techniques will catch the eye of prospects. With organic leads taken care of by Zoket, all you’d have to worry about is converting your leads to customers.                </h5>
               </div>
               
           </div>
           <div className="row  whyus-row">
               <div className="col col-md-6">
-                  <img src={img4}/>
+                  <img src={img14}/>
               </div>
               <div className="col col-md-6 whyus-content">
                 <h2>
-                    Localised Ad Campaigns
-                </h2>
+                No Expertise Required                </h2>
                 <h5>
-                    With Zocket’s localised ad campaigns, you’re sure to drive customers to your physical store. Online business listings, geo-tagging, and ads are some of the many things we help businesses get started with. You can rest assured that you’ll leave a positive brand image on your customers as your business flourishes, making it easier for you to build long-lasting customer relationships locally.
-                </h5>
+                Zocket is completely beginner friendly and doesn’t require any previous marketing expertise to use. Built with an aim to make marketing easier for small businesses, Zocket is powered by AI and will provide done-for-you content while you can take care of other important things in your business. With easy-to-follow guides, it doesn’t get better than this.                </h5>
               </div>
               
           </div>

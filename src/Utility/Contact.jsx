@@ -6,8 +6,11 @@ import { Component } from 'react';
 import axios from 'axios';
 import React,{useState} from 'react';
 import ReactDom from 'react-dom';
+import { useHistory } from 'react-router';
+import img18 from "../images/18.png";
+import img19 from "../images/19.png";
+import img20 from "../images/20.png";
 
-import { useHistory } from "react-router-dom";
 
 
 function Contact()  {
@@ -16,25 +19,26 @@ function Contact()  {
 
     const [ sent, setSent ] = useState(false)
 	const [ text, setText ] = useState("")
-	var timestamp = 0;
-
-    const submitPost = () => {
-        
-        }
+	var timestamp = 0;    
     const handleSend =  (e) => {
 		setSent(true)
         
 		try {
-			axios.post("https://zocket-express-azure.herokuapp.com/send_mail", {
+			axios.post("http://localhost:4000/send_mail", {
 				text
-			})
-            timestamp = Math.floor(Date.now()/1000);
+			}).then(Response=>{
+                timestamp = Math.floor(Date.now()/1000);
             console.log(timestamp);
-            
-            axios.post('https://zocket-express-azure.herokuapp.com/api/create', {Id: timestamp, User: text});
-            window.location.replace(`/${timestamp}`)
-           
-
+                axios.post('http://localhost:4000/api/create', {Id: timestamp, User: text}).then(Response=>{
+                    window.location.replace(`/${timestamp}`);
+                    // this.props.history.replace(`/${timestamp}`);
+                    
+                });
+            })
+            // prod
+			// axios.post("https://zocket-express-azure.herokuapp.com/send_mail", {
+			// 	text
+			// })
 		} catch (error) {
             console.log(text);
 			console.error(error);
@@ -42,9 +46,18 @@ function Contact()  {
     }
     
        return (
-           
-        <div className="container launch">
-          
+         <div>
+             <img className="absvec8"  alt="" src={img18}></img>
+            <img className="absvec9"  alt="" src={img19}></img>
+            <img className="absvec10"  alt="" src={img20}></img>
+            <img className="absvec11"  alt="" src={img18}></img>
+            <img className="absvec12"  alt="" src={img20}></img>
+            <img className="absvec13"  alt="" src={img20}></img>
+            <img className="absvec14"  alt="" src={img19}></img>
+
+           <div className="container launch">
+            
+            
           <div className="row launch-row">
            
               <div className="col col-md-6 launch-img">
@@ -74,7 +87,9 @@ function Contact()  {
               </div>
           </div>
       </div>
-      
+        
+         </div>  
+        
     )
 }
 export default Contact;

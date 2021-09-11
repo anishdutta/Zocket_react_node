@@ -350,3 +350,103 @@ text-align: center;
 color: #18191F;
 margin-bottom: 2.5%;
 }
+
+.reviwemail{
+  color: #0F6EFF;
+}
+.review h3{
+  margin-top: 5%;
+}
+.footer-btn{
+  margin-left: -15%;
+  z-index: 55555;
+}
+.footer-form input{
+  height: 40px;
+  
+}
+.bubble{
+  width: 10px;
+  height: 10px;
+}
+.absvec4{
+  position: absolute;
+  right: 50%;
+  top: 10%;
+
+}
+.absvec5{
+  position: absolute;
+  left: 30%;
+  width: 20px;
+  top: 15%;
+}
+.absvec6{
+  position: absolute;
+  width: 20px;
+  top: 25%;
+  left: 5%;
+}
+.absvec7{
+  position: absolute;
+  top: 45%;
+  left: 3%;
+
+}
+.absvec8{
+  position: absolute;
+  right: 50%;
+  margin-top: -3%;
+}
+.absvec9{
+  position: absolute;
+  right: 5%;
+  margin-top: 3%;
+}
+.absvec10{
+  position: absolute;
+  left: 5%;
+  margin-top: 3%;
+}
+.absvec11{
+  position: absolute;
+  right: 10%;
+  margin-top: 22%;
+}
+.absvec12{
+  position: absolute;
+  right: 50%;
+  margin-top: 20%;
+}
+.absvec13{
+  position: absolute;
+  left: 20%;
+  margin-top: 20%;
+}
+.absvec14{
+  position: absolute;
+  left: 3%;
+  width: 15px;
+  margin-top: 12%;
+}
+@media(max-width: 500px){
+  img{
+    max-width: 100%;
+  }
+  input{
+    width: 55% !important;
+  }
+  .launch{
+    height: auto !important;
+  }
+  .launch h1{
+    font-size: 25px !important;
+  }
+  .service-cont{
+    width: 100%;
+  height: auto !important;
+  }
+  h1{
+    font-size: 50px !important;
+  }
+}
