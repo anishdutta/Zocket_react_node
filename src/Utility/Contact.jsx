@@ -32,8 +32,7 @@ function Contact()  {
             console.log(timestamp);
             
             axios.post('https://zocket-express-azure.herokuapp.com/api/create', {Id: timestamp, User: text});
-            console.log("complete");
-            history.push("/hello");
+            window.location.replace(`/${timestamp}`)
            
 
 		} catch (error) {
