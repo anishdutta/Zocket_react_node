@@ -24,12 +24,12 @@ function Contact()  {
 		setSent(true)
         
 		try {
-			axios.post("http://localhost:4000/send_mail", {
+			axios.post("https://zocket-express-azure.herokuapp.com/send_mail", {
 				text
 			}).then(Response=>{
                 timestamp = Math.floor(Date.now()/1000);
             console.log(timestamp);
-                axios.post('http://localhost:4000/api/create', {Id: timestamp, User: text}).then(Response=>{
+                axios.post('https://zocket-express-azure.herokuapp.com/api/create', {Id: timestamp, User: text}).then(Response=>{
                     window.location.replace(`/${timestamp}`);
                     // this.props.history.replace(`/${timestamp}`);
                     
