@@ -450,3 +450,10 @@ margin-bottom: 2.5%;
     font-size: 50px !important;
   }
 }
+svg {
+  width: 100px;
+  height: 100px;
+ margin-left: 35px;
+ margin-top: -50px;
+  display: inline-block;
+}

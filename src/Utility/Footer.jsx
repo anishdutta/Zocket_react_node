@@ -86,7 +86,35 @@ function Footer(){
                             <h3>Get Early Access</h3>
                             <form className="d-flex footer-form" onSubmit={handleSend}>
                     <input required value={text} onChange={(e) => setText(e.target.value)} className="form-control" type="search" placeholder="Your email address" aria-label="Search"/>
-                    <button type="submit" className="btn footer-btn" ><img src={img17} alt=""></img></button>
+                    <button type="submit" className="btn footer-btn" >
+                    { !sent?(
+                        <img src={img17} alt=""></img>
+                        ):(
+                        <svg version="1.1" id="L9"  x="0px" y="0px"
+                        viewBox="0 0 100 100" enable-background="new 0 0 0 0">
+                            <rect x="20" y="50" width="4" height="10" fill="#fff">
+                            <animateTransform attributeType="xml"
+                                attributeName="transform" type="translate"
+                                values="0 0; 0 20; 0 0"
+                                begin="0" dur="0.6s" repeatCount="indefinite" />
+                            </rect>
+                            <rect x="30" y="50" width="4" height="10" fill="#fff">
+                            <animateTransform attributeType="xml"
+                                attributeName="transform" type="translate"
+                                values="0 0; 0 20; 0 0"
+                                begin="0.2s" dur="0.6s" repeatCount="indefinite" />
+                            </rect>
+                            <rect x="40" y="50" width="4" height="10" fill="#fff">
+                            <animateTransform attributeType="xml"
+                                attributeName="transform" type="translate"
+                                values="0 0; 0 20; 0 0"
+                                begin="0.4s" dur="0.6s" repeatCount="indefinite" />
+                            </rect>
+                        </svg>
+                    )
+                        }
+                        
+                            </button>
                   </form> 
                           </div>
                       </div>
