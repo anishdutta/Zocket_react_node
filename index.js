@@ -20,7 +20,7 @@ app.post('/api/create', (req,res)=> {
 	const User = req.body.User;	
 	console.log(Id);
 	
-	db.query(`insert into users (Id, Email) values (${Id},'${User}');`, (err,result)=>{
+	db.query(`insert into myusers (Id, Email) values (${Id},'${User}');`, (err,result)=>{
 	   if(err) {
 		   console.log(err)
 	   } 
@@ -32,7 +32,7 @@ app.post('/api/create', (req,res)=> {
 	app.get("/api/getFromId/:id", (req,res)=>{
 
 		const id = req.params.id;
-			db.query("SELECT * FROM users WHERE Id = ?", id, (err,result)=>{
+			db.query("SELECT * FROM myusers WHERE Id = ?", id, (err,result)=>{
 				if(err) {
 				console.log(err)
 				} 

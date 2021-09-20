@@ -3,10 +3,10 @@ require("dotenv").config()
 
 
 const db = mysql.createConnection({
-host: "zocket-app.mysql.database.azure.com",
-user: "user@zocket-app",
+host: "mysqlapp.cihwoiky5cks.us-east-1.rds.amazonaws.com",
+user: "root",
 password: process.env.PASS,
-database:"myusers" 
+database:"Mysqlapp" 
 })
 
 module.exports = db;
