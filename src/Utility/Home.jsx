@@ -89,6 +89,24 @@ function Home(){
         // });
   
     })
+    const options = {
+      responsiveClass: true,
+      nav: false,
+      autoplay: true,
+      smartSpeed: 1000,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1170: {
+          items: 3
+        }
+      },
+  };
+  
     return(
         <div>
             <div className="container main-head">
@@ -254,7 +272,7 @@ function Home(){
     
           <div className="row">
             <div className="col-sm-12">
-              <OwlCarousel  id="customers-testimonials" className="owl-carousel">
+              <OwlCarousel {...options} id="customers-testimonials" className="owl-carousel">
     
                 
                 <div className="item">
