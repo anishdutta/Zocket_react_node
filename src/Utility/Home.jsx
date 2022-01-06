@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import '../css/style.css';
 import '../css/slider.css';
 import img0 from "../images/0.png";
@@ -24,10 +24,12 @@ import img17 from "../images/17.png";
 import img18 from "../images/18.png";
 import img19 from "../images/19.png";
 import img20 from "../images/20.png";
-
-
-
 import { Route } from "react-router";
+import Helmet from "react-helmet";
+import OwlCarousel from 'react-owl-carousel';  
+import 'owl.carousel/dist/assets/owl.carousel.css';  
+import 'owl.carousel/dist/assets/owl.theme.default.css';  
+
 
 function Home(){
   const [ sent, setSent ] = useState(false)
@@ -58,6 +60,35 @@ function Home(){
 			console.error(error);
 		}
     }
+
+    useEffect(() => {
+        //  TESTIMONIALS CAROUSEL HOOK
+        console.log(window);
+        // window.A.sort();
+        const testimonial = document.getElementById("customers-testimonials");
+        // testimonial.owlCarousel({
+        //     loop: true,
+        //     center: true,
+        //     items: 3,
+        //     margin: 0,
+        //     autoplay: true,
+        //     dots:true,
+        //     autoplayTimeout: 8500,
+        //     smartSpeed: 450,
+        //     responsive: {
+        //       0: {
+        //         items: 1
+        //       },
+        //       768: {
+        //         items: 2
+        //       },
+        //       1170: {
+        //         items: 3
+        //       }
+        //     }
+        // });
+  
+    })
     return(
         <div>
             <div className="container main-head">
@@ -213,13 +244,17 @@ function Home(){
           </div>
       </div>
       <div className="testimonials">
+      <Helmet>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js'></script>
+      
+</Helmet>
           <h1>Hear It From Them</h1>
           <img className="abscev3" src={img0}/>
         <div className="container">
     
           <div className="row">
             <div className="col-sm-12">
-              <div id="customers-testimonials" className="owl-carousel">
+              <OwlCarousel  id="customers-testimonials" className="owl-carousel">
     
                 
                 <div className="item">
@@ -315,7 +350,7 @@ function Home(){
                   
                 </div>
                 
-              </div>
+            </OwlCarousel >
             </div>
           </div>
           </div>
